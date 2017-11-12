@@ -19,7 +19,9 @@
 </ul>-->
 <div *ngFor="let activity of activities">
     <strong>{{activity.name}}</strong><br>
-    Time: <input [(ngModel)]="activity.time" type="text">{{activity.time}}<br>
-    Percentage: {{activity.percentage}}<br>
+    Time: <span *ngFor="let time of activity.fime; let i = index"><input [(ngModel)]="activity.fime[i]" type="number">:</span><br>
+    Percentage: {{activity.percentage}}%<br>
+    <button (click)="activity.start()">start</button><button (click)="activity.stop()">stop</button><button (click)="activity.reset()">reset</button>
 </div>
-<button (click)="calc()">Calculate</button>
+<button (click)="calc()">Calculate</button><br>
+Name: <input [(ngModel)]="name"><button (click)="add()">Add</button>
